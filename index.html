@@ -61,8 +61,12 @@ body{
 }
 .top .wrap{display:flex;align-items:center;gap:9px}
 .brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0;cursor:pointer}
-.logo{width:34px;height:34px;flex:none;display:block}
-.logo svg{display:block;width:34px;height:34px}
+.logo{
+  width:36px;height:36px;flex:none;display:block;border-radius:10px;
+  background:#fff;border:1px solid rgba(0,31,77,.12);object-fit:cover;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+html[data-theme="light"] .logo{border-color:var(--line);box-shadow:0 1px 4px rgba(0,31,77,.1)}
 .bname{
   font-family:var(--font-dis);font-weight:600;font-size:17px;letter-spacing:.02em;
   line-height:1.05;white-space:nowrap;color:var(--tx);
@@ -288,14 +292,7 @@ svg.ch{width:100%;height:auto;display:block;touch-action:manipulation}
 <header class="top">
   <div class="wrap">
     <div class="brand" id="brand">
-      <span class="logo" aria-hidden="true">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" rx="15" fill="#001F4D"/>
-          <path d="M13 45 L26 32 L35 40 L48 21" fill="none" stroke="#EAC077" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M39 21 H48 V30" fill="none" stroke="#EAC077" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M16 15 l1.7 3.9 3.9 1.7 -3.9 1.7 -1.7 3.9 -1.7 -3.9 -3.9 -1.7 3.9 -1.7z" fill="#EAC077"/>
-        </svg>
-      </span>
+      <img class="logo" id="brandMark" alt="TOHIR FINANCE">
       <div style="min-width:0">
         <div class="bname">TOHIR</div>
         <div class="bsub">FINANCE</div>
@@ -1879,6 +1876,11 @@ var SW_SRC = [
     var ic = document.createElement("link");
     ic.rel = "apple-touch-icon"; ic.href = ICON;
     document.head.appendChild(ic);
+    var fav = document.createElement("link");
+    fav.rel = "icon"; fav.type = "image/png"; fav.href = ICON;
+    document.head.appendChild(fav);
+    var bm = document.getElementById("brandMark");
+    if(bm) bm.src = ICON;
     var link = document.createElement("link");
     link.rel = "manifest"; link.href = "manifest.json";
     document.head.appendChild(link);
