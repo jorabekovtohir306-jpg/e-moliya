@@ -3,38 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
-<meta name="theme-color" content="#0b0d12">
+<meta name="theme-color" content="#001F4D">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="E-MOLIYA">
-<title>E-MOLIYA</title>
+<meta name="apple-mobile-web-app-title" content="TOHIR FINANCE">
+<title>TOHIR FINANCE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
 <style>
 :root{
-  --bg:#0b0d12; --bg2:#0f121a; --card:#151922; --card2:#1b2029; --el:#222836;
-  --tx:#eef1f7; --mut:#8a93a6; --line:#252b38;
-  --in:#2fbf71; --in-bg:rgba(47,191,113,.13);
-  --out:#f2555a; --out-bg:rgba(242,85,90,.13);
-  --debt:#f0b429; --debt-bg:rgba(240,180,41,.13);
-  --eh:#22b8cf; --eh-bg:rgba(34,184,207,.13);
-  --acc:#5b7cfa; --acc2:#8b5cf6;
-  --shadow:0 10px 30px rgba(0,0,0,.45);
-  --r:18px;
+  --navy:#001F4D; --navy-d:#00112B; --gold:#EAC077; --gold-d:#C79A48; --green:#0C502E;
+  --bg:#00102A; --bg2:#001736; --card:#001F4D; --card2:#002A63; --el:#0A346F;
+  --tx:#F9F9F9; --mut:#8FA3C4; --line:#123A72;
+  --in:#5BC98F; --in-bg:rgba(12,80,46,.55);
+  --out:#E4695E; --out-bg:rgba(150,45,38,.42);
+  --debt:#E8A33D; --debt-bg:rgba(160,105,25,.35);
+  --eh:#EAC077; --eh-bg:rgba(234,192,119,.15);
+  --acc:#EAC077; --acc2:#D4A24C; --on-acc:#001F4D;
+  --shadow:0 12px 30px rgba(0,8,24,.5);
+  --font-ui:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --font-dis:'Playfair Display',Georgia,'Times New Roman',serif;
+  --r:16px;
 }
 html[data-theme="light"]{
-  --bg:#eef0f5; --bg2:#f7f8fb; --card:#ffffff; --card2:#f4f6fa; --el:#eceff5;
-  --tx:#11141b; --mut:#697187; --line:#e2e6ee;
-  --in:#0f9d58; --in-bg:rgba(15,157,88,.10);
-  --out:#d93a3f; --out-bg:rgba(217,58,63,.10);
-  --debt:#b8860b; --debt-bg:rgba(184,134,11,.12);
-  --eh:#0e8fa8; --eh-bg:rgba(14,143,168,.11);
-  --shadow:0 8px 26px rgba(26,34,58,.10);
+  --bg:#F9F9F9; --bg2:#FFFFFF; --card:#FFFFFF; --card2:#F1F4F9; --el:#E9EDF4;
+  --tx:#001F4D; --mut:#5C7093; --line:#DFE5EF;
+  --in:#0C502E; --in-bg:rgba(12,80,46,.10);
+  --out:#B3392F; --out-bg:rgba(179,57,47,.10);
+  --debt:#9A6B12; --debt-bg:rgba(154,107,18,.12);
+  --eh:#8A6414; --eh-bg:rgba(234,192,119,.22);
+  --acc:#8A6414; --acc2:#A97B21; --on-acc:#FFFFFF;
+  --navy:#001F4D; --navy-d:#00112B; --gold:#EAC077; --gold-d:#C79A48; --green:#0C502E;
+  --shadow:0 8px 24px rgba(0,31,77,.08);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
 body{
   background:var(--bg); color:var(--tx);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family:var(--font-ui);
   font-size:15px; line-height:1.45; -webkit-font-smoothing:antialiased;
   padding-bottom:calc(80px + env(safe-area-inset-bottom));
   transition:background .25s,color .25s;
@@ -52,21 +60,23 @@ body{
   padding:calc(9px + env(safe-area-inset-top)) 0 9px;
 }
 .top .wrap{display:flex;align-items:center;gap:9px}
-.brand{display:flex;align-items:center;gap:9px;margin-right:auto;min-width:0;cursor:pointer}
-.logo{
-  width:33px;height:33px;border-radius:11px;flex:none;
-  background:linear-gradient(135deg,var(--acc),var(--acc2));
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px;
-  box-shadow:0 6px 16px rgba(91,124,250,.35);
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0;cursor:pointer}
+.logo{width:34px;height:34px;flex:none;display:block}
+.logo svg{display:block;width:34px;height:34px}
+.bname{
+  font-family:var(--font-dis);font-weight:600;font-size:17px;letter-spacing:.02em;
+  line-height:1.05;white-space:nowrap;color:var(--tx);
 }
-.bname{font-weight:750;letter-spacing:.05em;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.15}
-.bsub{font-size:10.5px;color:var(--mut);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bsub{
+  font-size:8.5px;font-weight:600;letter-spacing:.3em;color:var(--acc);
+  white-space:nowrap;line-height:1.5;
+}
 .seg{display:flex;background:var(--el);border-radius:999px;padding:3px;gap:2px;flex:none}
 .seg button{
   border:0;background:transparent;color:var(--mut);font:inherit;font-size:12.5px;font-weight:650;
   padding:6px 11px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:.18s;
 }
-.seg button.on{background:var(--card);color:var(--tx);box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.seg button.on{background:var(--card);color:var(--acc);border:1px solid var(--line)}
 .iconbtn{
   width:34px;height:34px;flex:none;border:0;border-radius:11px;background:var(--el);color:var(--tx);
   display:grid;place-items:center;cursor:pointer;transition:.18s;
@@ -87,28 +97,27 @@ body{
 
 /* ---------- hero ---------- */
 .hero{
-  position:relative;overflow:hidden;border-radius:22px;padding:18px 18px 17px;margin-top:15px;
-  background:linear-gradient(140deg,#242b52 0%,#151a29 52%,#101420 100%);
-  border:1px solid rgba(255,255,255,.07); box-shadow:0 16px 40px rgba(0,0,0,.4); color:#fff;
-}
-html[data-theme="light"] .hero{
-  background:linear-gradient(140deg,#4c63d8 0%,#5b7cfa 45%,#7a5cf0 100%);
-  border-color:rgba(255,255,255,.25); box-shadow:0 14px 34px rgba(76,99,216,.32);
+  position:relative;overflow:hidden;border-radius:20px;padding:18px 18px 17px;margin-top:15px;
+  background:#001F4D; border:1px solid rgba(234,192,119,.28);
+  box-shadow:0 14px 34px rgba(0,10,32,.35); color:#F9F9F9;
 }
 .hero:before{
-  content:"";position:absolute;right:-60px;top:-80px;width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(circle,rgba(139,92,246,.45),transparent 68%);
+  content:"";position:absolute;right:-70px;top:-90px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(234,192,119,.14),transparent 70%);
 }
 .hero .hd{display:flex;align-items:center;gap:8px;position:relative}
-.hero .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
-.hero .eye{margin-left:auto;border:0;background:rgba(255,255,255,.12);color:#fff;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;cursor:pointer}
-.hero .big{font-size:32px;font-weight:760;letter-spacing:-.5px;margin:6px 0 2px;position:relative;line-height:1.15}
-.hero .sub{font-size:12px;opacity:.75;position:relative}
+.hero .lbl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#9FB4D4}
+.hero .eye{margin-left:auto;border:1px solid rgba(234,192,119,.3);background:transparent;color:#EAC077;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;cursor:pointer}
+.hero .big{
+  font-family:var(--font-dis);font-size:33px;font-weight:600;letter-spacing:0;
+  margin:7px 0 3px;position:relative;line-height:1.15;color:#EAC077;
+}
+.hero .sub{font-size:12px;color:#9FB4D4;position:relative}
 .hero .ms{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}
-.ms>div{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.10);border-radius:13px;padding:9px 10px;min-width:0}
+.ms>div{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:9px 11px;min-width:0}
 .ms>div.wide{grid-column:1 / -1}
-.ms .t{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;opacity:.72;line-height:1.25}
-.ms .v{font-size:15.5px;font-weight:700;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ms .t{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#8DA3C6;line-height:1.3}
+.ms .v{font-size:15px;font-weight:600;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#F9F9F9}
 
 /* ---------- ro'yxat ---------- */
 .list{display:flex;flex-direction:column}
@@ -136,16 +145,16 @@ html[data-theme="light"] .hero{
   background:var(--el);color:var(--tx);cursor:pointer;transition:.15s;min-height:46px;
 }
 .btn:active{transform:scale(.975)}
-.btn.pri{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 8px 20px rgba(91,124,250,.30)}
-.btn.eh{background:linear-gradient(135deg,var(--eh),#3a8fd6);color:#fff;box-shadow:0 8px 20px rgba(34,184,207,.28)}
+.btn.pri{background:var(--acc);color:var(--on-acc);font-weight:600}
+.btn.eh{background:var(--green);color:#EAC077;font-weight:600;border:1px solid rgba(234,192,119,.35)}
 .btn.dan{background:var(--out-bg);color:var(--out)}
 .btn.blk{width:100%}
 .btn.sm{padding:8px 12px;min-height:38px;font-size:13px;border-radius:11px}
 .fab{
   position:fixed;right:max(14px,calc(50% - 266px));bottom:calc(88px + env(safe-area-inset-bottom));z-index:45;
-  width:56px;height:56px;border-radius:19px;border:0;cursor:pointer;
-  background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-size:28px;line-height:1;
-  box-shadow:0 12px 28px rgba(91,124,250,.45);display:grid;place-items:center;
+  width:56px;height:56px;border-radius:50%;border:0;cursor:pointer;
+  background:#EAC077;color:#001F4D;font-size:28px;line-height:1;font-weight:600;
+  box-shadow:0 10px 26px rgba(0,10,32,.45);display:grid;place-items:center;
 }
 .fab:active{transform:scale(.93)}
 label.f{display:block;margin:13px 0 0}
@@ -164,8 +173,8 @@ select{appearance:none;-webkit-appearance:none;
   border:1px solid var(--line);background:var(--card2);color:var(--mut);border-radius:999px;
   padding:8px 13px;font-size:13px;font-weight:620;cursor:pointer;transition:.15s;
 }
-.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
-.chip.eh-on{background:var(--eh);border-color:var(--eh);color:#fff}
+.chip.on{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+.chip.eh-on{background:var(--eh);border-color:var(--eh);color:var(--on-acc)}
 .tog{display:flex;gap:8px;margin-top:6px}
 .tog button{flex:1;border:1px solid var(--line);background:var(--card2);color:var(--mut);border-radius:13px;padding:12px;font:inherit;font-weight:680;cursor:pointer;min-height:46px}
 .tog button.in-on{background:var(--in-bg);border-color:var(--in);color:var(--in)}
@@ -247,17 +256,17 @@ svg.ch{width:100%;height:auto;display:block;touch-action:manipulation}
 
 /* ---------- ehson ---------- */
 .ehero{
-  position:relative;overflow:hidden;border-radius:22px;padding:18px;margin-top:15px;color:#fff;
-  background:linear-gradient(140deg,#0f6d80 0%,#12808f 45%,#1a5f8f 100%);
-  box-shadow:0 14px 34px rgba(14,120,140,.32);border:1px solid rgba(255,255,255,.14);
+  position:relative;overflow:hidden;border-radius:20px;padding:18px;margin-top:15px;color:#F4F0E6;
+  background:#0C502E; border:1px solid rgba(234,192,119,.32);
+  box-shadow:0 14px 32px rgba(0,30,16,.3);
 }
 .ehero:before{content:"";position:absolute;right:-50px;bottom:-70px;width:190px;height:190px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%)}
-.ehero .t{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;position:relative}
-.ehero .v{font-size:29px;font-weight:760;margin:5px 0 3px;position:relative;line-height:1.15}
-.ehero .s{font-size:12px;opacity:.85;position:relative}
-.ehero .tr{height:8px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden;margin-top:13px;position:relative}
-.ehero .fl{height:100%;background:#fff;border-radius:99px;transition:width .5s cubic-bezier(.3,1,.4,1)}
+  background:radial-gradient(circle,rgba(234,192,119,.16),transparent 70%)}
+.ehero .t{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#A9C9B4;position:relative}
+.ehero .v{font-family:var(--font-dis);font-size:30px;font-weight:600;margin:6px 0 3px;position:relative;line-height:1.15;color:#EAC077}
+.ehero .s{font-size:12px;color:#A9C9B4;position:relative}
+.ehero .tr{height:7px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:13px;position:relative}
+.ehero .fl{height:100%;background:#EAC077;border-radius:99px;transition:width .5s cubic-bezier(.3,1,.4,1)}
 .mtab{width:100%;border-collapse:collapse;font-size:13px}
 .mtab th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);font-weight:700;text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}
 .mtab th:first-child{text-align:left}
@@ -279,10 +288,17 @@ svg.ch{width:100%;height:auto;display:block;touch-action:manipulation}
 <header class="top">
   <div class="wrap">
     <div class="brand" id="brand">
-      <div class="logo">E</div>
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="15" fill="#001F4D"/>
+          <path d="M13 45 L26 32 L35 40 L48 21" fill="none" stroke="#EAC077" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M39 21 H48 V30" fill="none" stroke="#EAC077" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 15 l1.7 3.9 3.9 1.7 -3.9 1.7 -1.7 3.9 -1.7 -3.9 -3.9 -1.7 3.9 -1.7z" fill="#EAC077"/>
+        </svg>
+      </span>
       <div style="min-width:0">
-        <div class="bname" id="brandName">E-MOLIYA</div>
-        <div class="bsub hide" id="brandSub"></div>
+        <div class="bname">TOHIR</div>
+        <div class="bsub">FINANCE</div>
       </div>
     </div>
     <div class="seg" id="langSeg">
@@ -344,7 +360,7 @@ svg.ch{width:100%;height:auto;display:block;touch-action:manipulation}
 var T = {
   nav_home:["Asosiy","Асосий"], nav_tx:["Amaliyot","Амалиёт"], nav_debt:["Qarz","Қарз"],
   nav_pct:["Foiz","Фоиз"], nav_set:["Sozlama","Созлама"], nav_eh:["Ehson","Эҳсон"],
-  brand:["E-MOLIYA","Э-МОЛИЯ"],
+  brand:["TOHIR FINANCE","TOHIR FINANCE"],
   cur:["so'm","сўм"],
   bal_month:["Shu oy balansi","Шу ой баланси"],
   income:["Daromad","Даромад"], expense:["Xarajat","Харажат"],
@@ -481,7 +497,7 @@ var WK = [
   ["Dushanba","Seshanba","Chorshanba","Payshanba","Juma","Shanba","Yakshanba"],
   ["Душанба","Сешанба","Чоршанба","Пайшанба","Жума","Шанба","Якшанба"]
 ];
-var PALETTE = ["#5b7cfa","#8b5cf6","#f0b429","#2fbf71","#f2555a","#22b8cf","#e879a6","#a3e635","#fb923c","#94a3b8","#38bdf8","#c084fc"];
+var PALETTE = ["#EAC077","#4A7FD4","#5BC98F","#E4695E","#C79A48","#8FA3C4","#2E9E63","#D98B3A","#7B9BD1","#B08CC4","#4FB6C4","#E0B84A"];
 var EH_CAT = "c_ehson";
 
 /* ====================== 2. MA'LUMOT ====================== */
@@ -620,7 +636,7 @@ function catName(id){
   return c ? (c[L?"cyr":"lat"] || c.lat) : t("none");
 }
 function catColor(id){
-  if(id===EH_CAT) return "#22b8cf";
+  if(id===EH_CAT) return "#EAC077";
   var i = D().cats.map(function(c){ return c.id; }).indexOf(id);
   return PALETTE[(i<0?0:i) % PALETTE.length];
 }
@@ -744,11 +760,7 @@ function ehMonths(n){
 function render(){
   L = DB.lang==="cyr" ? 1 : 0;
   document.documentElement.setAttribute("data-theme", DB.theme==="light" ? "light" : "dark");
-  metaTheme().setAttribute("content", DB.theme==="light" ? "#eef0f5" : "#0b0d12");
-  $("brandName").textContent = t("brand");
-  var sub = $("brandSub");
-  if(DB.profiles.length > 1){ sub.textContent = P().name; sub.classList.remove("hide"); }
-  else sub.classList.add("hide");
+  metaTheme().setAttribute("content", DB.theme==="light" ? "#F9F9F9" : "#001F4D");
   document.querySelectorAll("[data-t]").forEach(function(el){ el.textContent = t(el.getAttribute("data-t")); });
   document.querySelectorAll("#langSeg button").forEach(function(b){
     b.classList.toggle("on", b.getAttribute("data-lang") === (L==1?"cyr":"lat"));
@@ -780,8 +792,9 @@ function pageHome(){
     diff = (p>=0?"▲ +":"▼ ") + p.toFixed(0) + "% " + t("vs_prev");
   }
 
+  var who = DB.profiles.length > 1 ? P().name + " · " : "";
   var h = '<div class="hero"><div class="hd">' +
-    '<div class="lbl">' + esc(MON[d.getMonth()][L]+" "+d.getFullYear()+" · "+t("bal_month")) + '</div>' +
+    '<div class="lbl">' + esc(who + MON[d.getMonth()][L]+" "+d.getFullYear()+" · "+t("bal_month")) + '</div>' +
     '<button class="eye" data-act="eye">' + (DB.hideBal ?
       '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l18 18"/><path d="M10.6 10.7a2 2 0 0 0 2.8 2.8"/><path d="M9.4 5.2A9.5 9.5 0 0 1 12 5c5 0 9 5 9 7a12 12 0 0 1-2.4 3.1M6.2 6.7A12.6 12.6 0 0 0 3 12c0 2 4 7 9 7 1.2 0 2.3-.3 3.3-.7"/></svg>' :
       '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg>') +
@@ -1731,7 +1744,7 @@ function csvText(){
   });
   return rows.join("\r\n");
 }
-function expName(kind){ return "e-moliya-" + today() + (kind==="csv" ? ".csv" : ".json"); }
+function expName(kind){ return "tohir-finance-" + today() + (kind==="csv" ? ".csv" : ".json"); }
 function expText(kind){ return kind==="csv" ? csvText() : JSON.stringify(DB, null, 2); }
 /* Eksport: fayl yuklash ba'zi muhitlarda bloklanadi - matn nusxasi zaxira yo'l */
 function exportSheet(kind){
@@ -1804,18 +1817,18 @@ function doClear(){
 </script>
 <script>
 /* ====================== 9. PWA ====================== */
-var ICON = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzViN2NmYSIvPjx0ZXh0IHg9IjI1NiIgeT0iMzQ4IiBmb250LXNpemU9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RTwvdGV4dD48L3N2Zz4=";
+var ICON = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMUY0RCIvPjxwYXRoIGQ9Ik0xMDQgMzYwIEwyMDggMjU2IEwyODAgMzIwIEwzODQgMTY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNFQUMwNzciIHN0cm9rZS13aWR0aD0iNDQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0zMTIgMTY4IEgzODQgVjI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRUFDMDc3IiBzdHJva2Utd2lkdGg9IjQ0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNMTI4IDExMiBsMTQgMzIgMzIgMTQgLTMyIDE0IC0xNCAzMiAtMTQgLTMyIC0zMiAtMTQgMzIgLTE0eiIgZmlsbD0iI0VBQzA3NyIvPjwvc3ZnPg==";
 var MANIFEST = {
-  name:"E-MOLIYA", short_name:"E-MOLIYA",
+  name:"TOHIR FINANCE", short_name:"TOHIR",
   start_url:".", scope:".", display:"standalone",
-  background_color:"#0b0d12", theme_color:"#0b0d12", orientation:"portrait", lang:"uz",
+  background_color:"#001F4D", theme_color:"#001F4D", orientation:"portrait", lang:"uz",
   icons:[
     {src:ICON, sizes:"192x192", type:"image/svg+xml", purpose:"any"},
     {src:ICON, sizes:"512x512", type:"image/svg+xml", purpose:"any maskable"}
   ]
 };
 var SW_SRC = [
-  "var C='emoliya-v2';",
+  "var C='tohir-finance-v1';",
   "self.addEventListener('install',function(e){self.skipWaiting();e.waitUntil(caches.open(C).then(function(c){",
   " return Promise.all(['./','./index.html','./E-MOLIYA.html','./manifest.json'].map(function(u){return c.add(u).catch(function(){});}));",
   "}));});",
@@ -1832,11 +1845,21 @@ var SW_SRC = [
 
 (function(){
   try{
+    /* Shriftlar: HTML qobig'i bo'lmagan muhitda bosh qismdagi ulanish tushib qoladi */
+    if(!document.querySelector('link[href*="fonts.googleapis.com"]')){
+      var pc = document.createElement("link");
+      pc.rel = "preconnect"; pc.href = "https://fonts.gstatic.com"; pc.crossOrigin = "anonymous";
+      document.head.appendChild(pc);
+      var fl = document.createElement("link");
+      fl.rel = "stylesheet";
+      fl.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap";
+      document.head.appendChild(fl);
+    }
     /* HTML qobig'i bo'lmagan muhitda ham PWA teglari bo'lishi uchun */
     [["apple-mobile-web-app-capable","yes"],
      ["mobile-web-app-capable","yes"],
      ["apple-mobile-web-app-status-bar-style","black-translucent"],
-     ["apple-mobile-web-app-title","E-MOLIYA"]].forEach(function(m){
+     ["apple-mobile-web-app-title","TOHIR FINANCE"]].forEach(function(m){
       if(!document.querySelector('meta[name="' + m[0] + '"]')){
         var mt = document.createElement("meta");
         mt.setAttribute("name", m[0]); mt.setAttribute("content", m[1]);

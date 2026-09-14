@@ -1,4 +1,4 @@
-var C = 'emoliya-v2';
+var C = 'tohir-finance-v1';
 
 self.addEventListener('install', function(e){
   self.skipWaiting();
